@@ -1,0 +1,29 @@
+<?php
+
+return [
+    'openapi-file' => __DIR__ . '/dpdhl-express-api-2.12.0_swagger_0.yaml',
+    'namespace' => 'AntibodiesOnline\DHL\Api',
+    'directory' => __DIR__ . '/src',
+];
+
+/**
+Please note:
+In the generated code watch for file:
+
+AntibodiesOnline\DHL\Api\Runtime\Client\BaseEndpoint.php
+
+public function getQueryString(): string
+    {
+        $optionsResolved = $this->getQueryOptionsResolver()->resolve($this->queryParameters);
+        $optionsResolved = array_map(function ($value) {
+            // Needed hack, otherwise http_build_query() would convert boolean to int
+            if ($value === true) return 'true';
+            if ($value === false) return 'false';
+            // Needed hack end
+            return null !== $value ? $value : '';
+        }, $optionsResolved);
+        return http_build_query($optionsResolved, '', '&', PHP_QUERY_RFC3986);
+    }
+
+// You need to add "true" and "false" as string to the array_map function to avoid the conversion of boolean to int
+**/

@@ -1,0 +1,36 @@
+{
+  "name": "antibodies-online/dhl-api-rest",
+  "description": "PHP SDK for DHL REST API",
+  "license": "MIT",
+  "homepage": "https://www.antibodies-online.com/",
+  "authors": [
+    {
+      "name": "Benedikt Lenzen",
+      "email": "benedikt.lenzen@antibodies-online.com"
+    }
+  ],
+  "require-dev": {
+    "jane-php/open-api-3": "^7.8"
+  },
+  "config": {
+    "allow-plugins": {
+      "php-http/discovery": true
+    }
+  },
+  "require": {
+    "jane-php/open-api-runtime": "^7.8"
+  },
+  "autoload": {
+    "psr-4": {
+      "\\AntibodiesOnline\\DHL\\Api\\": "src/"
+    }
+  },
+  "scripts": {
+    "generate-files": [
+      "php vendor/bin/jane-openapi generate -c .jane"
+    ],
+    "generate-json": [
+      "bin/console api:openapi:export --output=dhl-api-rest.json"
+    ]
+  }
+}
